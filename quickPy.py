@@ -2,12 +2,33 @@ import os
 
 import sys
 import numpy as np
+import time
+#import torch
+# print(torch.__version__)
+# print(torch.version.cuda)
+# print(torch.backends.cudnn.version())
+
+#import tensorflow as tf
+#tf.__version__ 
+
+
+a = np.array([1])
+print(type(a))
+np.save("test00000001",arr=a)# np.array or list
+data = np.load('test00000001.npy')
+
+
 
 print("[Version]  👉 "+sys.version)#E
 print("[Executable]  👉 "+sys.executable)#E
 print("[currentPath]  👉 "+os.getcwd())  #current path
 #print(tf.test.is_gpu_available())
 
+
+time.process_time()
+
+for i in range(0,3):
+    print(i)
 a=1+\
 2
 
@@ -15,14 +36,14 @@ b=[1,3,\
 5]
 b=np.ndarray([7])
 b=np.array([3,5,1])
-print('a')
-print(b.shape)
-print(b)
-b=np.array([b])
-b=b.T
-print('b')
-print(b.shape)
-print(b)
+# print('a')
+# print(b.shape)
+# print(b)
+# b=np.array([b])
+# b=b.T
+# print('b')
+# print(b.shape)
+# print(b)
 
 
 # np.array
@@ -39,3 +60,22 @@ print(b)
 # plt.axis('off')
 # plt.show()
 # fig.savefig(output_path,dpi=800,bbox_inches='tight')
+
+# print('linspace')
+# print (np.linspace(0,2,6))
+nx,ny = (2,5)
+x = np.linspace(0,2,nx)
+y = np.linspace(0,2,ny)
+print(x)
+print(y)
+xv,yv = np.meshgrid(x,y)
+print(xv.ravel())
+# #[ 0.  1.  2.  0.  1.  2.  0.  1.  2.]
+print(yv.ravel())
+# #[ 0.  0.  0.  1.  1.  1.  2.  2.  2.
+
+print('👇')
+for k in range(5,9):#起始值/终值。含起始值
+    print(k)
+
+# print(7//3)
