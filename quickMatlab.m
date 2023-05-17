@@ -1,3 +1,4 @@
+load xx.mat;
 J=1;
 A=reshape(pos2,[8200,3]);%reshape总是先把同一列的元素合并。先同一行合并需要使用转置T''
 [r,c]=size(A);

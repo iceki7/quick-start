@@ -46,6 +46,22 @@ b=np.array([3,5,1])
 # print(b)
 
 
+a=np.array([[2,5],[1,3]])
+b=np.array([7,10,9,0])
+c=np.array([1,2,3,4.5])
+d=np.array([-1,-2,-3,-4.5])
+
+print(c/b)
+k=(c/b)[np.isfinite(c/b)]
+k=k[k<0.3]
+
+print(k)
+print(abs(d))
+print(type(b))
+a=a.flatten()
+print(np.mean(c**2))
+print(d.size)
+
 # np.array
 # .shape
 # .ravel
