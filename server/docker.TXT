@@ -1,0 +1,18 @@
+
+labServer【KasmWeb（tichi环境）】
+
+
+PC浏览器→KasmWeb
+
+
+【docker & kasmWeb学习笔记】
+
+
+docker port [container]  容器端口
+docker insepct[container] 容器配置
+docker ps 查看端口映射
+
+查看‘宿主机’在WSL网络（或WLAN）中的IP=x；
+使用 https://x:6901或https://localhost:6901登录。
+
+docker run  -it --shm-size=512m -p 6901:6901 -e VNC_PW=password kasmweb/desktop:1.11.0

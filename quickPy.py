@@ -12,6 +12,7 @@ import time
 #tf.__version__ 
 
 
+
 a = np.array([1])
 print(type(a))
 np.save("test00000001",arr=a)# np.array or list

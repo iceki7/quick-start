@@ -1,0 +1,10 @@
+yzx
+Afish1001!
+
+
+
+昌平windows工作站
+ip: 10.25.145.176(未固定)
+domain: ai3d-C326-graphics-windows.workstation.ustb-ai3d.cn
+user: yzx
+password: Afish1001!

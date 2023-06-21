@@ -1,3 +1,6 @@
+启动 bash /root/start.sh&&/etc/init.d/ssh restart&&sleep infinity
+
+
 cat file
 ls ll
 cp fileprefix* newdir
