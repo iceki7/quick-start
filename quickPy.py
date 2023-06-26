@@ -46,6 +46,9 @@ b=np.array([3,5,1])
 # print(b.shape)
 # print(b)
 
+print("🍎 %.2f"%3.1415)
+m=np.prod([i+1 for i in [1,2,3,4]])
+print(m)
 
 a=np.array([[2,5],[1,3]])
 b=np.array([7,10,9,0])

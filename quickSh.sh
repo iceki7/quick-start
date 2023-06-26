@@ -18,7 +18,7 @@ rm -r   可以删除有文件的目录。
 rm 不能删除目录。
 which python
 
-service xxx start
+service ssh start
 
 export VAR=xxx
 echo $VAR
@@ -43,3 +43,8 @@ conda activate
 conda list
 conda info
 conda env list
+&& #先执行的必须成功再执行后一个命令
+
+apt update && apt install
+
+ssh -p xxxx root@ip
