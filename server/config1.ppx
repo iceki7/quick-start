@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxifierProfile version="101" platform="Windows" product_id="0" product_minver="310">
+  <Options>
+    <Resolve>
+      <AutoModeDetection enabled="false" />
+      <ViaProxy enabled="true">
+        <TryLocalDnsFirst enabled="true" />
+      </ViaProxy>
+      <ExclusionList>%ComputerName%; localhost; *.local</ExclusionList>
+    </Resolve>
+    <Encryption mode="disabled" />
+    <HttpProxiesSupport enabled="false" />
+    <HandleDirectConnections enabled="false" />
+    <ConnectionLoopDetection enabled="true" />
+    <ProcessServices enabled="true" />
+    <ProcessOtherUsers enabled="true" />
+  </Options>
+  <ProxyList>
+    <Proxy id="100" type="SOCKS5">
+      <Address>ali.ustb-ai3d.cn</Address>
+      <Port>11112</Port>
+      <Options>48</Options>
+    </Proxy>
+  </ProxyList>
+  <ChainList />
+  <RuleList>
+    <Rule enabled="true">
+      <Name>Localhost</Name>
+      <Applications>msedge.exe;mstsc.exe;WinSCP.exe</Applications>
+      <Targets>localhost; %ComputerName%; ::1; 127.*;10.*;172.16.0.0-172.31.255.255;192.168.*; 255.255.255.255; 169.254.*; 0.*;fc00::-ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff;115.25.0.0-115.25.63.255;115.25.212.0-115.25.215.255;123.124.147.0-123.124.147.255;202.204.48.0-202.204.63.255;211.144.7.0-211.144.7.255;222.28.32.0-222.28.79.255;222.199.192.0-222.199.223.255;2001:da8:208:*;*.ustb.edu.cn;*.ibeike.com</Targets>
+      <Action type="Proxy">100</Action>
+    </Rule>
+    <Rule enabled="true">
+      <Name>ustb-ai3d</Name>
+      <Applications>msedge.exe;mstsc.exe;WinSCP.exe</Applications>
+      <Targets>*.ustb-ai3d.cn</Targets>
+      <Action type="Proxy">100</Action>
+    </Rule>
+    <Rule enabled="true">
+      <Name>Default</Name>
+      <Action type="Direct" />
+    </Rule>
+  </RuleList>
+</ProxifierProfile>

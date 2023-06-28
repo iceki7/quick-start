@@ -43,8 +43,12 @@ conda activate
 conda list
 conda info
 conda env list
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn
+conda config --show channels
+
 && #先执行的必须成功再执行后一个命令
 
 apt update && apt install
+apt-get update
 
 ssh -p xxxx root@ip
