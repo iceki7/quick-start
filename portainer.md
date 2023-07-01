@@ -19,8 +19,10 @@ export https_proxy=http://router4.ustb-ai3d.cn:3128
 本地映射
 
 
-设置端口：22转portainer端口。
+启动容器的时候配置端口映射：22转portainer dashboard端口。
 apt install openssh-server
+
+host:50000~65535  ->   container:  22(ssh)
 
 设置ssh允许root登录：
 sed -i 's/^PermitRootLogin/#PermitRootLogin/g' /etc/ssh/sshd_config && sed -i '$aPermitRootLogin yes' /etc/ssh/sshd_config

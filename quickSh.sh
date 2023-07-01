@@ -56,7 +56,15 @@ lsof -i
 netstat
 
 
-apt update && apt install
+apt update 
 apt-get update
+apt install
+apt-get install -y #不一样
+
+
+nohup xxx & #与终端无关，且后台执行
+tail -f nohup.out #查看文档末尾，并实时同步
+
+
 
 ssh -p xxxx root@ip #win
