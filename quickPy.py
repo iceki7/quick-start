@@ -27,6 +27,7 @@ print("[currentPath]  👉 "+os.getcwd())  #current path
 
 
 time.process_time()
+time.time()#1970
 
 for i in range(0,3):
     print(i)
@@ -79,7 +80,7 @@ print(d.size)
 # plt.gca().dist=7 #默认是10
 # plt.axis('off')
 # plt.show()
-# fig.savefig(output_path,dpi=800,bbox_inches='tight')
+# fig.savefig('./1.png',dpi=800,bbox_inches='tight')
 
 # print('linspace')
 # print (np.linspace(0,2,6))
@@ -99,3 +100,11 @@ for k in range(5,9):#起始值/终值。含起始值
     print(k)
 
 # print(7//3)
+
+print(np.random.randn(2,3))
+
+print('5\n\n3')
+print(r'5\n\n3')
+# add gauss noise
+#     u_train = u_train + noise*np.std(u_train)*np.random.randn(u_train.shape[0], u_train.shape[1])
+#     v_train = v_train + noise*np.std(v_train)*np.random.randn(v_train.shape[0], v_train.shape[1])    

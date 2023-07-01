@@ -1,10 +1,10 @@
 启动 bash /root/start.sh&&/etc/init.d/ssh restart&&sleep infinity
 
-
+df -h
 cat file
 ls ll
-cp fileprefix* newdir
-mv file dir
+cp -r fileprefix* file/newdir 
+mv -r file/dir dir
 mv oldfile newfile
 --xxx=
 netstat -tunlp|grep PORT
@@ -17,6 +17,7 @@ mkdir
 rm -r   可以删除有文件的目录。
 rm 不能删除目录。
 which python
+whereis
 
 service ssh start
 
@@ -45,10 +46,17 @@ conda info
 conda env list
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn
 conda config --show channels
-
+& #后台执行
 && #先执行的必须成功再执行后一个命令
+
+
+#查看端口
+ss -lntup
+lsof -i
+netstat
+
 
 apt update && apt install
 apt-get update
 
-ssh -p xxxx root@ip
+ssh -p xxxx root@ip #win
