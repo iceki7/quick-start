@@ -12,6 +12,7 @@ import time
 #tf.__version__ 
 
 
+assert([3,5]==[3,5])
 
 a = np.array([1])
 print(type(a))
