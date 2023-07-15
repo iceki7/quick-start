@@ -2,7 +2,7 @@
 
 df -h
 cat file
-ls ll
+ls ll -h
 cp -r fileprefix* file/newdir 
 mv -r file/dir dir
 mv oldfile newfile
@@ -20,6 +20,8 @@ which python
 whereis
 
 service ssh start
+
+jupyter server list
 
 export VAR=xxx
 echo $VAR
