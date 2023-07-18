@@ -1,4 +1,4 @@
-启动 bash /root/start.sh&&/etc/init.d/ssh restart&&sleep infinity
+
 
 df -h
 cat file
@@ -20,6 +20,8 @@ which python
 whereis
 
 service ssh start
+
+wget dir url
 
 jupyter server list
 

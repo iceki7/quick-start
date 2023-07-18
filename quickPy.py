@@ -1,8 +1,10 @@
 import os
-
 import sys
 import numpy as np
 import time
+#import a.b 对应目录: a/b
+
+#env test
 #import torch
 # print(torch.__version__)
 # print(torch.version.cuda)
@@ -10,7 +12,14 @@ import time
 
 #import tensorflow as tf
 #tf.__version__ 
+#print(tf.test.is_gpu_available())
+print("[Version]  👉 "+sys.version)#E
+print("[Executable]  👉 "+sys.executable)#E
+print("[currentPath]  👉 "+os.getcwd())  #current path
 
+
+sys.path.append(".")
+sys.path.append('./pkg1')
 
 assert([3,5]==[3,5])
 
@@ -21,10 +30,7 @@ data = np.load('test00000001.npy')
 
 
 
-print("[Version]  👉 "+sys.version)#E
-print("[Executable]  👉 "+sys.executable)#E
-print("[currentPath]  👉 "+os.getcwd())  #current path
-#print(tf.test.is_gpu_available())
+
 
 
 time.process_time()
