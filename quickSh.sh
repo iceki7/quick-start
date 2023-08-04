@@ -58,7 +58,7 @@ conda config --show channels
 
 #查看端口
 ss -lntup
-lsof -i
+lsof -i:22
 netstat
 
 
