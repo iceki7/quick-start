@@ -2,6 +2,9 @@ import os
 import sys
 import numpy as np
 import time
+
+import matplotlib.pyplot as plt
+
 #import dir.file
 #from pythonfilename import 
 
@@ -28,16 +31,22 @@ sys.path.append('./pkg1')
 #basic
 assert([3,5]==[3,5])
 
+
+allvel=np.concatenate((all_data_u,all_data_v,all_data_w),-1)# 把最后一维拼起来
+allvel=np.swapaxes(allvel,0,4)#交换对应的两个维度
+
+
+arr=arr.astype(np.float64) #float32=float ,float64=double
 a = np.array([1])
 print(type(a))#a.shape
 
-np.save("test00000001",arr=a)# np.array or list
-data = np.load('test00000001.npy')
 
+zzz=np.zeros((sizD[0],sizD[1],sizD[2],sizT),dtype=np.float32)
 b=np.ndarray([7])
 b=np.array([3,5,1])
+tid=np.random.choice(10, num, replace=False)# get from 0~9
 print(np.random.randn(2,3))
-print(np.linspace(0,2,6))
+
 
 print(c/b)
 print(7//3)
@@ -78,7 +87,6 @@ print(framenum)
 print(testnum)
 idx = np.arange(0, framenum) 
 np.random.shuffle(idx) # 打乱数组的顺序
-#print(idx)
 idx = idx[:int(testnum)] 
 print(idx.shape)#即测试帧的序号
 veltest=velall[idx,:,:,:]
@@ -99,6 +107,7 @@ time.process_time()
 time.time()#1970 secs
 time.sleep()#sec
 
+sys.getsizeof(var1)
 
 
 
@@ -123,7 +132,6 @@ print(d.size)
 # .shape
 # .ravel
 # .reshape(ar,[W,L])
-# .meshgrid
 
 
 # ax3.set_facecolor('#000000') 
@@ -133,6 +141,44 @@ print(d.size)
 # plt.gca().view_init(30, -30)    默认是30和-60
 # plt.gca().dist=7 #默认是10
 
+#torch中
+#outputs=model(input) model()间接调用了forward方法
+
+#实验记录
+torch.manual_seed(1234)
+np.random.seed(1234)    #保证结果唯一性
+random.seed(1234)
+bloadmodel=0# swi
+mid="123" #prm
+tid=str(int(time.time()))
+if(bloadmodel):
+     tid=mid
+
+np.save("/res/losslis"+tid,arr=losslis)# np.array or list
+data = np.load('test00000001.npy')
+
+
+res=[]
+res.append("[L2] "+str(0.25))
+def fres():
+    for x in res:
+         print(x)
+
+"""
+步骤：
+1.准备tid，锁定随机性
+2.划分路径
+3.存档
+    Loss数组
+    保存torch模型（不仅仅是保存参数而是保存模型，之后导入时先引入模型的类即可）
+4.标注:
+    #prm
+    #rez
+    #swi    做对比实验的时候常用
+    #cri =criterion
+5.小epoch试跑
+6. 能用变量名表示的就不要用数字。否则更换参数时困难
+"""
 
 plt.plot(epochs, loss_values, label='Training Loss')  # 曲线
 plt.title('Training Loss')
@@ -148,11 +194,13 @@ plt.imshow(resu.astype(np.float32))
 plt.title('res u')
 plt.tight_layout()
 plt.legend() # 显示图例
-plt.savefig('./results/'+testid+'-'+str(imageFrame)+'-A.png',bbox_inches='tight',pad_inches=0.0, dpi=300)
+
+#show之前save
+plt.savefig('./results/'+tid+frameId+'-A.png',bbox_inches='tight',pad_inches=0.0, dpi=300)
 plt.show()
 
 nx,ny = (2,5)
-x = np.linspace(0,2,nx)
+x = np.linspace(0,2,nx)#左闭右闭
 y = np.linspace(0,2,ny)
 print(x)
 print(y)
@@ -163,16 +211,41 @@ print(yv.ravel())
 # #[ 0.  0.  0.  1.  1.  1.  2.  2.  2.
 
 
-
+filename = ('%s_pred_'+tid+'---_%d.mat') % (hp['savename'], alpha) 
 
 # add gauss noise
 #     u_train = u_train + noise*np.std(u_train)*np.random.randn(u_train.shape[0], u_train.shape[1])
 #     v_train = v_train + noise*np.std(v_train)*np.random.randn(v_train.shape[0], v_train.shape[1])    
 
+#         mean = 0
+#         var = 0.1 #default 0.1 zparam
+#         var = 0.001
+#         sigma = var ** 0.5
+#         noise = np.random.normal(mean, sigma, (velafloat.shape[1], velafloat.shape[2]))
+#         noise = noise.reshape(velafloat.shape[1], velafloat.shape[2])
+
+
+#criterion
+
 #relative l2
     # l2= ||u-u' ||_2 /  || u ||_2 
+deltu=oriu0 - resu
 l2=np.linalg.norm(deltu)/ np.linalg.norm(oriu0)
 # norm：take the matrix as a vector and calc its norm
-
 #mse
-np.mean(np.square(ypre-yori))
+np.mean(np.square(deltu))
+
+
+#add normal noise
+input_var = np.var(oriu0)
+        coef=0.05
+        
+        mean = 0
+        var = 0.1 #default 0.1 zparam
+        var = 1#0.005
+        sigma = var ** 0.5
+        noise = np.random.normal(mean, sigma, (velafloat.shape[1], velafloat.shape[2]))
+        noise = coef*noise.reshape(velafloat.shape[1], velafloat.shape[2])
+        velafloat[i,:,:,0]+=noise
+        
+sys.exit()

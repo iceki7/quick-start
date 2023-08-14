@@ -42,3 +42,5 @@ ssh root@转发后ip -p 转发后port
 
     # 启动
     jupyter-notebook --allow-root --port=8888 --ip=0.0.0.0
+    
+jupyter notebook list
