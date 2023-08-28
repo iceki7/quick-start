@@ -1,8 +1,8 @@
-启动 bash /root/start.sh&&/etc/init.d/ssh restart&&sleep infinity
+
 
 df -h
 cat file
-ls ll
+ls ll -h
 cp -r fileprefix* file/newdir 
 mv -r file/dir dir
 mv oldfile newfile
@@ -21,8 +21,13 @@ whereis
 
 service ssh start
 
+wget dir url
+
+jupyter server list
+
 export VAR=xxx
 echo $VAR
+unset VAR
 
 cp --recursive
 
@@ -38,6 +43,7 @@ nvidia-smi
 nvcc -V
 cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2  cudnn版本号
 
+conda deactivate
 conda create -n [your_env_name（你的虚拟环境的名字）] python==[X.X]（2.5、3.8等)
 conda install cudnn==8.2.1
 conda activate 
@@ -52,7 +58,7 @@ conda config --show channels
 
 #查看端口
 ss -lntup
-lsof -i
+lsof -i:22
 netstat
 
 

@@ -11,5 +11,6 @@ cmake config,generate。如果变红，就config两次。
 如果失败清理cmake cache
 设置启动项目为sample模块
 
-# 方法对校园项目无效。
+# 方法对校园项目无效。需要复制example文件夹。
+
 
