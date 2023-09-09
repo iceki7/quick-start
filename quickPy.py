@@ -22,7 +22,7 @@ print("[Executable]   "+sys.executable)#E
 print("[currentPath]   "+os.getcwd())  #current path
 os.chdir("/home/yanzhexi/PyTorch-VAE" )
 sys.path.append(".")# NOT write to DISK
-sys.path.append('./pkg1')
+sys.path.append('./pkg1') #./表示相对路径
 print(sys.path)
 #sys.exit()
 sys.getsizeof(var1)
@@ -30,36 +30,21 @@ sys.getsizeof(var1)
 
 
 
-#experiment basic---------
-torch.manual_seed(1234)
-np.random.seed(1234)    #保证结果唯一性
-random.seed(1234)
-#为了允许重复执行单个cell ，可在每次调用函数前再单独设置。
-tid=str(int(time.time()))
-# swi---------
-bloadmodel=0
+
+  
+
+
+  
+
 # prm---------
 mid="123" #model id
 dsnm='test00000001.npy'
 epo=1000
 
 
-if(bloadmodel):
-     tid=mid
 
 
-lossl=[]
 
-if(bloadmodel==False):
-    for x in range(0,1): #train loop
-        lossl.append(lossv)
-
-    np.save("/res/lossl-"+tid,arr=lossl)# np.array or list
-    print('loss SAVED')
-
-data = np.load("x.npy",allow_pickle=True)
-print('loaded :) ')
-#----------------------------
 
 
 #mat
@@ -172,34 +157,19 @@ def fres():
     for x in res:
          print(x)
 
-"""
-步骤：
-1.准备tid，锁定随机性
-2.划分路径
-3.存档
-    Loss数组
-    保存torch模型（不仅仅是保存参数而是保存模型，之后导入时先引入模型的类即可）
-4.标注:
-    #prm
-    #hyp 超参数
-    #res
-    #swi    做对比实验的时候常用
-    #cri =criterion
-5.小epoch试跑
-6. 能用变量名表示的就不要用数字。否则更换参数时困难
-"""
+
 
 # plot
 plt.plot(epochs, loss_values, label='Training Loss')  # 曲线。range,list
 plt.title('Training Loss')
 plt.xlabel('Epochs')
 plt.axes(yscale="log")
+plt.grid(True, linestyle="--", alpha=0.5)
 plt.ylim(bottom=0, top=1)
 plt.imshow(oriu.astype(np.float32))#矩阵转热力图
 plt.axis('off')
 plt.subplot(2, 2, 1)#几行几列第几副图
 plt.imshow(resu.astype(np.float32))
-plt.title('res u')
 plt.tight_layout()
 plt.legend() # 显示图例
 #show之前save
@@ -260,7 +230,7 @@ velafloat[i,:,:,0]+=noise
 
 
 
-# 坐标序列化
+# 坐标序列化。随机在一个时空域内取点，然后得到它们的坐标
 allnum=velall.shape[0]*velall.shape[1]*velall.shape[2]
 idx = np.random.choice(allnum, samplenum, replace=False)#所选取的点的序号
 m=np.vstack(np.unravel_index(idx, (velall.shape[0], velall.shape[1], velall.shape[2]))).T#所选取的点的坐标

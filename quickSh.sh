@@ -4,7 +4,7 @@ df -h
 cat file
 ls ll -h
 cp -r fileprefix* file/newdir 
-mv -r file/dir dir
+mv file/dir dir
 mv oldfile newfile
 --xxx=
 netstat -tunlp|grep PORT
@@ -74,3 +74,6 @@ tail -f nohup.out #查看文档末尾，并实时同步
 
 
 ssh -p xxxx root@ip #win
+
+#vim
+/ #search
