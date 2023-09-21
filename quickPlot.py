@@ -48,3 +48,25 @@ plt.colorbar(p4, ax=ax4)
 
 plt.savefig('./predict_results/Flow2D_compare.png', dpi=300)
 plt.show()
+
+#####################################3
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 定义x、y、z的取值范围
+x = np.linspace(-5, 5, 100)    #起始/结束/点的数量，包括起始和结束
+y = np.linspace(-5, 5, 100)
+X, Y = np.meshgrid(x, y)
+
+# 计算z的值
+Z = X + Y
+
+# 绘制热力图
+plt.imshow(Z, cmap='hot', interpolation='nearest')
+plt.colorbar()
+plt.title('热力图')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
+######################################

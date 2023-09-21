@@ -64,8 +64,10 @@ a=1+\
 b=[1,3,\
 5]
 
-print(7/3)
-print(7//3)
+np.full(size,num)#单值数组
+
+
+print(7//3)#整除
 math.isnan()
 print(r'5\n\n3')#去除转义
 for k in range(5,9):#[)
@@ -79,7 +81,7 @@ print(m)
 # k[k==k] # nan
 k=(c/b)[np.isfinite(c/b)]
 
-#array process
+#array process-------------------------------
 allvel=np.concatenate((all_data_u,all_data_v,all_data_w),-1)# 把最后一维拼起来
 allvel=np.swapaxes(allvel,0,4)#交换对应的两个维度
 arr=arr.astype(np.float64) #float32=float ,float64=double
@@ -90,12 +92,14 @@ b=np.array([3,5,1])
 tt=np.random.choice(10, num, replace=False)# get from 0~9 and NO REPEAT
 print(np.random.randn(2,3))
 a=a.flatten()
+#如果x.shape是个元组
+x=np.array([x])
 
 #filter
 print(k[k<0.3])
 b=b.T
 # .ravel
-# .reshape(ar,[W,L])
+arr.reshape(size,-1)#自动把剩下的部分分到第二维
 
 [dudx,dudy,dudz]=np.gradient(velu)#velu.shape=(3,3,3)
 
@@ -192,11 +196,6 @@ plt.show()
 # plt.show()
 
 
-# 曲面
-x = np.linspace(0,2,5)#左闭右闭
-y = np.linspace(0,2,7)
-xv,yv = np.meshgrid(x,y)
-print(xv.shape)
 
 
 
