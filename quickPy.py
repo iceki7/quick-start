@@ -4,7 +4,8 @@ import time
 import matplotlib.pyplot as plt
 
 #import dir.file
-#from pythonfilename import 
+#from pythonfilename import *
+#如果import * 就不用再带包名了
 
 #import torch
 # print(torch.__version__)
@@ -21,6 +22,7 @@ print("[Version]   "+sys.version)#E
 print("[Executable]   "+sys.executable)#E
 print("[currentPath]   "+os.getcwd())  #current path
 os.chdir("/home/yanzhexi/PyTorch-VAE" )
+os.path.exists(tid+".pt")
 sys.path.append(".")# NOT write to DISK
 sys.path.append('./pkg1') #./表示相对路径
 print(sys.path)
@@ -63,6 +65,10 @@ a=1+\
 2
 b=[1,3,\
 5]
+
+
+x=2**0.5 # 乘方，支持小数
+math.sin #弧度
 
 np.full(size,num)#单值数组
 

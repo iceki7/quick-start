@@ -64,7 +64,8 @@ Z = X + Y
 
 # 绘制热力图
 plt.imshow(Z, cmap='hot', interpolation='nearest')
-plt.colorbar()
+cbar=plt.colorbar()
+cbar.mappable.set_clim(0.02, 0.06)
 plt.title('热力图')
 plt.xlabel('x')
 plt.ylabel('y')
