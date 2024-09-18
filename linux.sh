@@ -5,12 +5,28 @@ du -sh *
 
 cat file
 ll -h
-ls -lh
+ls -lhd
 ls | grep 
 date
-cp -r fileprefix* file/newdir 
-mv file/dir dir
-mv oldfile newfile
+
+cp -ri 
+#fileprefix* file/newdir 
+
+
+#执行第一个命令成功后再执行第二个
+cp v1 v2 &&
+echo 123123
+
+
+# 批量移动：
+find . -maxdepth 1   -type f -name "*.h5*" -exec mv {} /workspace/DeepLagrangianFluids-FORK/scripts  \;
+# 文件名不要包含[
+
+
+mv -i 
+#oldfile newfile
+#file/dir dir
+
 --xxx=
 netstat -tunlp|grep PORT
 netstat -anp | grep 15148 得到PID
@@ -29,12 +45,19 @@ mkdir
 git status 
 # 工作区
 
+git checkout -- 
+#filename 放弃更改
+
+
+
 rm -r   可以删除有文件的目录。
 rm 不能删除目录。
 rm *
 
 rm -r *
-#*name*
+#*name* 含name的
+# name* name开头的
+
 
 which python
 whereis
@@ -107,5 +130,17 @@ tmux kill-session -t0
 unzip -q 
 # 不输出解压信息
 
+zip -rq 
+# dir.zip dir
+
+
+
 ctrl c
+
+
+echo a{3..10}b
+
+shell变量名后面不要跟_  比如$var1_ 
+
+md5sum 
 
