@@ -5,7 +5,27 @@ du -sh *
 
 cat file
 ll -h
+
+
+# 后台运行
+nohup python run_simulation.py > output.log 2>&1 &
+tail file
+
+
+stat file
+# 单文件详细信息
+
 ls -lhd
+ls -lSh
+# 详细信息，按大小排序，可读
+
+
+for dir in */; do  
+    du -sh "$dir"  
+done
+#文件夹大小
+
+
 ls | grep 
 date
 
@@ -21,6 +41,17 @@ echo 123123
 # 批量移动：
 find . -maxdepth 1   -type f -name "*.h5*" -exec mv {} /workspace/DeepLagrangianFluids-FORK/scripts  \;
 # 文件名不要包含[
+
+
+
+# 复制一个文件中的所有py文件到另一个目录，保持相对路径
+rsync -av --include='*/' --include='*.py' --include='*.sh' --exclude='*' ./   /w/movecontainer/
+
+
+
+
+
+ 
 
 
 mv -i 
@@ -39,7 +70,17 @@ kill -9
 # +pid
 
 touch 
-which
+which python
+
+
+修改PATH
+vi ~/.bashrc
+export PATH=/opt/conda/envs/py38/bin:$PATH
+source ~/.bashrc
+#https://blog.51cto.com/u_16175455/10626873
+
+
+
 mkdir
 
 git status 

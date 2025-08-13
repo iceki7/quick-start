@@ -1,0 +1,85 @@
+// ---------------------计算norm------------------------
+
+
+// 获取当前点的位置
+vector pos = @P;
+
+// 计算点到原点的距离
+float distance = length(pos);
+
+// 将距离存储到自定义属性 "dist"
+@dist = distance;
+
+
+
+
+
+
+// ---------------------合并attr------------------------
+
+// 获取当前几何的点索引
+int pt = @ptnum;
+
+// 从第二个输入中读取对应点的属性
+vector attr_from_geo2 = point(1, "dist", pt);
+
+// 将属性合并到主几何体
+@curl = float(attr_from_geo2);
+
+
+// ---------------------过滤粒子------------------------
+
+
+
+
+
+int pt = @ptnum;
+vector pos = point(0, "P", pt);  // 获取点的坐标
+vector vnorm = point(0, "vnorm", pt);  // 获取点的attr
+
+// 设置筛选范围
+float xmin = -17;
+float xmax = 10;
+
+float ymin = -4.5;
+float ymax = 1;
+
+float zmin = -3.2;
+float zmax = 3.2;
+
+
+// 检查点是否在范围内并删除
+if (pos.x < xmin || pos.x > xmax ||
+    pos.y < ymin || pos.y > ymax ||
+    pos.z < zmin || pos.z > zmax ||
+    vnorm < 2) {
+    removepoint(0, pt);
+}
+------------------------------------------------------
+
+
+// 跟踪粒子连续性
+if (@ptnum != 3 && @ptnum != 5 && @ptnum != 7
+&& @ptnum != 9
+&& @ptnum != 11
+&& @ptnum != 13
+&& @ptnum != 15) {
+    removepoint(0, @ptnum);
+}
+
+
+------------------------------------------------------
+节点
+point wrangle：
+color
+transform
+    transform order
+
+file
+
+进入OBJ内部再缩放可避免视角飞出去
+
+快捷键
+A   居中 
+w   线框显示
+ESC
